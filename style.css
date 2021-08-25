@@ -1,8 +1,337 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Allison&family=Lato:ital,wght@0,400;1,700&display=swap");
 
 :root {
-  --primaryColor: #f09d51;
-  --mainWhite: #fff;
-  --mainBlack: #222;
-  --mainGrey: #ececec;
+  --clr-one: #01161e;
+  --clr-two: #124559;
+  --clr-three: #598392;
+  --clr-four: #aec3b0;
+  --clr-five: #eff6e0;
+  --clr-five-2: #eff6e0a2;
+  --clr-six: #59839298;
+}
+/*=====================
+General Layout
+======================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  font-family: Lato, sans-serif;
+}
+/*=====================
+Navigation Bar
+======================*/
+.navbar-fixed {
+  background-color: var(--clr-five-2);
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 0 20px;
+  font-size: 36px;
+  font-family: "Allison", cursive;
+  z-index: 5;
+}
+
+.navbar-fixed h1 {
+  letter-spacing: 2px;
+}
+.navbar-fixed h1 > span {
+  color: var(--clr-three);
+}
+.navbar-fixed i {
+  font-size: 24px;
+  cursor: pointer;
+}
+/* Drop Down Menu on Menu-Bars Icon click */
+.navbar-dropdown {
+  position: absolute;
+  top: 50px;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
+  background-color: var(--clr-five-2);
+  width: 100%;
+}
+.open-menu {
+  height: 120px;
+}
+ul {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  height: 100%;
+}
+ul li {
+  list-style: none;
+  height: 33%;
+  padding: 8px 0 0 20px;
+  cursor: pointer;
+}
+ul li:hover {
+  background-color: var(--clr-four);
+}
+li a {
+  text-decoration: none;
+  color: var(--clr-two);
+  font-weight: 600;
+}
+/*^^^^^^^^^Navigation Bar^^^^^^^^^^^^^*/
+/*=====================
+Shopping Cart
+======================*/
+.shopping-cart-container {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  background-color: var(--clr-six);
+}
+.shopping-cart {
+  background-color: var(--clr-four);
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 0px;
+  height: 100%;
+  transition: all 0.3s linear;
+}
+/* Following to be toggled with JS */
+.open-cart {
+  width: 300px;
+}
+.open-cart-background {
+  display: block;
+}
+/**********Shopping Cart Header**********/
+.cart-header {
+  position: relative;
+}
+.cart-header button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--clr-three);
+  color: white;
+  padding: 1px 7px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+}
+.cart-header h3 {
+  text-align: center;
+  margin: 60px 0 20px 0;
+  letter-spacing: 3px;
+}
+/**********Shopping Cart Items**********/
+.cart-items-container {
+  padding: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.item {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.item img {
+  width: 80px;
+}
+.item-info {
+  padding-left: 10px;
+  width: calc(100% - 80px); /* Item - img */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 900;
+}
+.item-info button {
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  color: var(--clr-two);
+  font-size: 12px;
+  text-align: left;
+}
+.item-quantity {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.item-quantity i {
+  color: var(--clr-two);
+}
+
+/**********Shopping Cart Footer**********/
+.cart-footer {
+  text-align: center;
+  font-weight: 900;
+}
+.cart-footer button {
+  margin-top: 10px;
+  padding: 10px 35px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: var(--clr-three);
+  border: none;
+}
+
+/**********Shopping Cart Menu Icon**********/
+/* Menu Bar shopping cart Icon and num of items in cart */
+.fa-shopping-cart {
+  position: relative;
+}
+#num-items {
+  background-color: orange;
+  color: white;
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  z-index: 2;
+  font-size: 12px;
+  padding: 2px 4px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/*=====================
+Front Page
+======================*/
+.page-content {
+  height: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+.front-page {
+  height: 100vh;
+  background-image: url(./images/watchBG.jpg);
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+}
+.welcome-text-container {
+  text-transform: uppercase;
+  font-size: 13px;
+  width: 280px;
+  height: 140px;
+  padding: 10px 0;
+  background-color: rgba(255, 255, 255, 0.568);
+  text-align: center;
+}
+.welcome-text-container button {
+  margin-top: 20px;
+  background-color: var(--clr-two);
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 24px;
+}
+
+/*=====================
+Products Page
+======================*/
+.products-page {
+  height: 100%;
+}
+.products-page h2 {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  font-size: 32px;
+  padding: 50px 0;
+}
+.products-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+/* Each Product, dynamically inserted from JSON file*/
+.product {
+  z-index: 0;
+  max-width: 260px;
+  height: fit-content;
+  margin: 10px 10px;
+  text-align: center;
+}
+.product .image-container {
+  position: relative;
+}
+.image-container img {
+  width: 260px;
+  height: 200px;
+  object-fit: cover;
+}
+.image-container button {
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  padding: 2px 10px;
+  height: 20px;
+  border: none;
+  background-color: var(--clr-four);
+  display: none;
+  width: 0px;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+.product p:first-of-type {
+  font-weight: bolder;
+  padding-top: 4px;
+}
+.product p:last-child {
+  padding: 8px 0;
+  color: var(--clr-two);
+}
+
+/*=====================
+General Layout
+======================*/
+@media (min-width: 1200px) {
+  /* Nav bar max width */
+  .navbar-fixed {
+    max-width: 1220px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 30px;
+  }
+  .navbar-dropdown {
+    max-width: 1200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1800px) {
+  /* Cart slide in position */
+  .shopping-cart-container {
+    max-width: 1800px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 }
