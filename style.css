@@ -387,10 +387,3 @@ General Layout
     margin: auto;
   }
 }
-
-@media (min-width: 1800px) {
-  /* Cart slide in position */
-  .shopping-cart-container {
-    /* left: 0; */
-  }
-}
